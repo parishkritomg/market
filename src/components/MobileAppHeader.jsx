@@ -50,7 +50,7 @@ const MobileAppHeader = ({
           <div className="flex items-center space-x-3 z-10">
             {location.pathname === '/' && (
               <img 
-                src="/assets/logo-for-app.png" 
+                src={`${import.meta.env.BASE_URL}assets/logo-for-app.png`} 
                 alt="Zentro Logo" 
                 className="w-8 h-8"
               />

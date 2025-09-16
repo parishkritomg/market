@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const PullToRefresh = ({ onRefresh, children }) => {
+const PullToRefreshTest = ({ onRefresh, children }) => {
   const [pullDistance, setPullDistance] = useState(0);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isPulling, setIsPulling] = useState(false);
   const [isAtTopPosition, setIsAtTopPosition] = useState(true);
   const [lastScrollTime, setLastScrollTime] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [debugInfo, setDebugInfo] = useState('');
 
   const containerRef = useRef(null);
   const startY = useRef(0);
@@ -25,7 +26,9 @@ const PullToRefresh = ({ onRefresh, children }) => {
                    bodyScrollTop === 0 && 
                    containerScrollTop === 0;
 
-    console.log(`🔍 Position Check: Window: ${windowScrollTop}, Doc: ${documentScrollTop}, Body: ${bodyScrollTop}, Container: ${containerScrollTop} = ${isAtTop ? 'AT TOP' : 'NOT AT TOP'}`);
+    const debugMsg = `Window: ${windowScrollTop}, Doc: ${documentScrollTop}, Body: ${bodyScrollTop}, Container: ${containerScrollTop} = ${isAtTop ? 'AT TOP' : 'NOT AT TOP'}`;
+    setDebugInfo(debugMsg);
+    console.log('🔍 Position Check:', debugMsg);
     
     return isAtTop;
   };
@@ -262,6 +265,15 @@ const PullToRefresh = ({ onRefresh, children }) => {
       onMouseDown={handleMouseDown}
       style={{ touchAction: 'pan-y' }}
     >
+      {/* Debug Info */}
+      <div className="fixed top-0 left-0 right-0 bg-black text-white text-xs p-2 z-50">
+        <div>Status: {isAtTopPosition ? '✅ AT TOP' : '❌ NOT AT TOP'}</div>
+        <div>Scrolling: {isScrolling ? '📜 YES' : '⏸️ NO'}</div>
+        <div>Pulling: {isPulling ? '👆 YES' : '⏸️ NO'}</div>
+        <div>Distance: {pullDistance.toFixed(0)}px</div>
+        <div>{debugInfo}</div>
+      </div>
+
       {/* Pull indicator */}
       {pullDistance > 0 && (
         <div 
@@ -288,7 +300,7 @@ const PullToRefresh = ({ onRefresh, children }) => {
       )}
 
       {/* Content */}
-      <div>
+      <div style={{ paddingTop: '120px' }}>
         {children}
       </div>
 
@@ -305,4 +317,4 @@ const PullToRefresh = ({ onRefresh, children }) => {
   );
 };
 
-export default PullToRefresh;
+export default PullToRefreshTest;

@@ -151,7 +151,7 @@ function App() {
     <AuthProvider>
         <NotificationProvider>
           <PhoneNumberChecker>
-            <Router>
+            <Router basename="/market">
               <ScrollToTop />
               <AppContent />
             </Router>

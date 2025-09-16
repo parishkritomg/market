@@ -56,7 +56,7 @@ const Navigation = () => {
                 }
               }}
             >
-              <img src="/assets/logo of Zentro.png" alt="Zentro" className="h-8 md:h-10 w-auto" />
+              <img src={`${import.meta.env.BASE_URL}assets/logo of Zentro.png`} alt="Zentro" className="h-8 md:h-10 w-auto" />
             </div>
 
             {/* Desktop Navigation Links */}
@@ -190,7 +190,7 @@ const Navigation = () => {
             {/* Mobile menu header */}
             <div className="flex items-center justify-between mb-8">
               <Link to="/" className="flex items-center space-x-3" onClick={closeMobileMenu}>
-                <img src="/assets/logo of Zentro.png" alt="Zentro" className="h-10 w-auto" />
+                <img src={`${import.meta.env.BASE_URL}assets/logo of Zentro.png`} alt="Zentro" className="h-10 w-auto" />
               </Link>
               <button
                 onClick={closeMobileMenu}

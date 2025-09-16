@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="mb-4">
               <img 
-                src="/assets/footer logo of Zentro.png" 
+                src={`${import.meta.env.BASE_URL}assets/footer logo of Zentro.png`} 
                 alt="Zentro" 
                 className="h-12 w-auto"
               />

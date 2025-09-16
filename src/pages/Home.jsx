@@ -8,6 +8,7 @@ import { useNotifications } from '../context/NotificationContext';
 import PropertyCard from '../components/PropertyCard';
 import PullToRefresh from '../components/PullToRefresh';
 
+
 const Home = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -115,7 +116,7 @@ const Home = () => {
     <PullToRefresh onRefresh={handleRefresh}>
       <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white overflow-hidden min-h-[60vh] flex items-center" style={{backgroundImage: 'url(/assets/hero.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', animation: 'heroZoom 20s ease-in-out infinite alternate', transform: 'translateZ(0)'}}>
+      <section className="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white overflow-hidden min-h-[60vh] flex items-center" style={{backgroundImage: `url(${import.meta.env.BASE_URL}assets/hero.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center', animation: 'heroZoom 20s ease-in-out infinite alternate', transform: 'translateZ(0)'}}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-purple-600/30 animate-pulse"></div>
         <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20">
@@ -337,6 +338,7 @@ const Home = () => {
         </div>
       </section>
       </div>
+
     </PullToRefresh>
   );
 };

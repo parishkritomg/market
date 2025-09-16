@@ -36,7 +36,7 @@ const SplashScreen = ({ onComplete }) => {
         {/* Zentro logo */}
         <div className="mb-6">
           <img 
-            src="/assets/logo-for-app.png" 
+            src={`${import.meta.env.BASE_URL}assets/logo-for-app.png`} 
             alt="Zentro Logo" 
             className="w-20 h-20 object-contain"
           />
